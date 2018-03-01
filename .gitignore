@@ -9,3 +9,8 @@
 tmp/
 output_graph.pb
 output_labels.txt
+model
+flower_photos
+__pycache__
+bottleneck
+.idea
