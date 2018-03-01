@@ -1,4 +1,5 @@
 import itchat
+import result
 
 downloadWePicturePath = 'weimage/'
 
@@ -16,10 +17,14 @@ def picture_reply(msg):
 @itchat.msg_register(itchat.content.PICTURE)
 def download_files(msg):
     # msg.download(msg['FileName'])   #这个同样是下载文件的方式
-    msg['Text'](downloadWePicturePath + msg['FileName'])  # 下载文件
+    savePath = downloadWePicturePath + msg['FileName']
+    msg['Text'](savePath)  # 下载文件
     # 将下载的文件发送给发送者
-    itchat.send('@%s@%s' % ('img' if msg['Type'] == 'Picture' else 'fil', downloadWePicturePath + msg["FileName"]),
-                msg["FromUserName"])
+    # itchat.send('@%s@%s' % ('img' if msg['Type'] == 'Picture' else 'fil', downloadWePicturePath + msg["FileName"]),
+    #             msg["FromUserName"])
+    itchat.send("信息获取中")
+    res = result.getResult(savePath)
+    itchat.send(res)
 
 
 itchat.auto_login()
