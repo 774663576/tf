@@ -1,0 +1,11 @@
+# Created by .ignore support plugin (hsz.mobi)
+/weimage/
+/bottleneck/
+/output_graph.pb
+/output_labels.txt
+/model/
+.idea/inspectionProfiles/
+.idea/vcs.xml
+tmp/
+output_graph.pb
+output_labels.txt
