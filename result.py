@@ -26,8 +26,8 @@ def getResult(picturePath):
     with tf.Session() as sess:
         softmax_tensor = sess.graph.get_tensor_by_name('final_result:0')
 
-    result = ''
-    maxScore = 0
+    result = '未查询到员工信息'
+    maxScore = 0.7
     image_data = tf.gfile.FastGFile(picturePath, 'rb').read()
     predictions = sess.run(softmax_tensor, {'DecodeJpeg/contents:0': image_data})  # 图片格式是jpg格式
     predictions = np.squeeze(predictions)  # 把结果转为1维数据
@@ -39,7 +39,7 @@ def getResult(picturePath):
         category = id_to_string(node_id)
         # 获取该分类的置信度
         score = predictions[node_id]
-        # print('%s (score = %.5f)' % (human_string, score))
+        print('%s (score = %.5f)' % (category, score))
         if score > maxScore:
             maxScore = score
             result = category
