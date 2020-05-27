@@ -6,7 +6,7 @@ db = pymysql.Connect(
     port=3306,
     user='root',
     passwd='root',
-    db='koolearn',
+    db='test',
     charset='utf8'
 )
 cursor = db.cursor()
